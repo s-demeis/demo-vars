@@ -17,21 +17,12 @@ jobs:
         environment: DEVELOPMENT
         runs-on: ubuntu-latest
         env:
-            TITLE: "sono il titolo"
+            TITLE: ${{ inputs.TITLE }}
         steps:
             - name: print title
               continue-on-error: false
               run: | 
-                ghrehhrhernhfh
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
-              run: echo api_key -> ${{ vars.API_KEY }}
-    print-no-env:
-        needs: print
-        if: success()
-        name: print-no-env
-        runs-on: ubuntu-latest
-        steps:
-            - name: print
               run: echo api_key -> ${{ vars.API_KEY }}
