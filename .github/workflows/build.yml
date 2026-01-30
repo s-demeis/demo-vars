@@ -1,5 +1,5 @@
 name: demo vars
-on:
+on: # [workflow_dispatch, push, fork]
     workflow_dispatch:
 env:
     CONTENT: "sono il contenuto della variabile"
@@ -15,13 +15,16 @@ jobs:
             TITLE: "sono il titolo"
         steps:
             - name: print title
+              continue-on-error: false
               run: | 
-                echo ${{ toJson(github) }}
+                exit
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
               run: echo api_key -> ${{ vars.API_KEY }}
     print-no-env:
+        needs: print
+        if: always()
         name: print-no-env
         runs-on: ubuntu-latest
         steps:
