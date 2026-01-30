@@ -1,0 +1,25 @@
+name: print vars
+on:
+    workflow_call:
+        inputs:
+            TITLE:
+                description: title
+                required: true
+                type: string
+jobs:
+    print:
+     # strategy:
+        #     matrix:
+        #         os: [ubuntu-latest, windows-latest, macos-latest]
+        name: print
+        environment: DEVELOPMENT
+        runs-on: ubuntu-latest
+        env:
+            TITLE: ${{ inputs.TITLE }}
+        steps:
+            - name: print title
+              continue-on-error: false
+              run: | 
+                echo titolo: ${{ env.TITLE }}
+            - name: print api key
+              run: echo api_key -> ${{ vars.API_KEY }}

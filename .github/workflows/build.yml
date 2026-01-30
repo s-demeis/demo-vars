@@ -10,19 +10,6 @@ env:
     CONTENT: "sono il contenuto della variabile"
 jobs:
     print:
-        # strategy:
-        #     matrix:
-        #         os: [ubuntu-latest, windows-latest, macos-latest]
-        name: print
-        environment: DEVELOPMENT
-        runs-on: ubuntu-latest
-        env:
-            TITLE: ${{ inputs.TITLE }}
-        steps:
-            - name: print title
-              continue-on-error: false
-              run: | 
-                echo titolo: ${{ env.TITLE }}
-                echo contenuto: ${{ env.CONTENT }}
-            - name: print api key
-              run: echo api_key -> ${{ vars.API_KEY }}
+       uses: ./.github/workflows/print-vars.yml
+       with:
+         TITLE: ${{ inputs.TITLE }}
