@@ -1,6 +1,11 @@
 name: demo vars
 on: # [workflow_dispatch, push, fork]
     workflow_dispatch:
+        inputs:
+            TITLE:
+                description: title
+                required: true
+                type: string
 env:
     CONTENT: "sono il contenuto della variabile"
 jobs:
