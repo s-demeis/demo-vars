@@ -15,7 +15,7 @@ jobs:
             TITLE: "sono il titolo"
         steps:
             - name: print title
-              continue-on-error: true
+              continue-on-error: false
               run: | 
                 ghrehhrhernhfh
                 echo titolo: ${{ env.TITLE }}
@@ -24,7 +24,7 @@ jobs:
               run: echo api_key -> ${{ vars.API_KEY }}
     print-no-env:
         needs: print
-        if: always()
+        if: failure()
         name: print-no-env
         runs-on: ubuntu-latest
         steps:
