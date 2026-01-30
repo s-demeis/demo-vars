@@ -1,0 +1,16 @@
+name: demo vars
+on:
+    workflow_dispatch:
+env:
+    CONTENT: "sono il contenuto della variabile"
+jobs:
+    print:
+        name: print
+        runs-on: ubuntu-latest
+        env:
+            TITLE: "sono il titolo"
+        steps:
+            - name: print title
+              run: | 
+                echo titolo: ${{ env.TITLE }}
+                echo contenuto: ${{ env.CONTENT }}
