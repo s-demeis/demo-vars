@@ -5,9 +5,12 @@ env:
     CONTENT: "sono il contenuto della variabile"
 jobs:
     print:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
         name: print
         environment: DEVELOPMENT
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
         env:
             TITLE: "sono il titolo"
         steps:
