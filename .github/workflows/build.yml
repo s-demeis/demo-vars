@@ -15,7 +15,7 @@ jobs:
             TITLE: "sono il titolo"
         steps:
             - name: print title
-              continue-on-error: false
+              continue-on-error: true
               run: | 
                 ghrehhrhernhfh
                 echo titolo: ${{ env.TITLE }}
