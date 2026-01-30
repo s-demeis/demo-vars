@@ -3,10 +3,10 @@ on:
     workflow_dispatch:
 env:
     CONTENT: "sono il contenuto della variabile"
-    API_KEY: ${{ secrets.API_KEY }}
 jobs:
     print:
         name: print
+        environment: DEVELOPMENT
         runs-on: ubuntu-latest
         env:
             TITLE: "sono il titolo"
@@ -16,4 +16,4 @@ jobs:
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
-              run: echo api_key -> ${{ env.API_KEY }}
+              run: echo api_key -> ${{ secrets.API_KEY }}
