@@ -16,4 +16,4 @@ jobs:
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
-              run: echo contenuto -> ${{ env.CONTENT }}
+              run: echo api_key -> ${{ env.API_KEY }}
