@@ -3,6 +3,7 @@ on:
     workflow_dispatch:
 env:
     CONTENT: "sono il contenuto della variabile"
+    API_KEY: ${{ vars.API_KEY }}
 jobs:
     print:
         name: print
@@ -14,3 +15,5 @@ jobs:
               run: | 
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
+            - name: print api key
+              run: echo contenuto -> ${{ env.CONTENT }}
