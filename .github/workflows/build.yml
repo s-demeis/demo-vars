@@ -24,7 +24,7 @@ jobs:
               run: echo api_key -> ${{ vars.API_KEY }}
     print-no-env:
         needs: print
-        if: failure()
+        if: success()
         name: print-no-env
         runs-on: ubuntu-latest
         steps:
