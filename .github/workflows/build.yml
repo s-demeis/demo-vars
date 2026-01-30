@@ -5,19 +5,19 @@ env:
     CONTENT: "sono il contenuto della variabile"
 jobs:
     print:
-        strategy:
-            matrix:
-                os: [ubuntu-latest, windows-latest, macos-latest]
+        # strategy:
+        #     matrix:
+        #         os: [ubuntu-latest, windows-latest, macos-latest]
         name: print
         environment: DEVELOPMENT
-        runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
         env:
             TITLE: "sono il titolo"
         steps:
             - name: print title
               continue-on-error: false
               run: | 
-                exit
+                ghrehhrhernhfh
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
