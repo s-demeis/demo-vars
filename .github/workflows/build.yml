@@ -16,4 +16,10 @@ jobs:
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
-              run: echo api_key -> ${{ secrets.API_KEY }}
+              run: echo api_key -> ${{ vars.API_KEY }}
+    print-no-env:
+        name: print-no-env
+        runs-on: ubuntu-latest
+        steps:
+            - name: print
+              run: echo api_key -> ${{ vars.API_KEY }}
