@@ -16,6 +16,7 @@ jobs:
         steps:
             - name: print title
               run: | 
+                echo ${{ toJson(github) }}
                 echo titolo: ${{ env.TITLE }}
                 echo contenuto: ${{ env.CONTENT }}
             - name: print api key
